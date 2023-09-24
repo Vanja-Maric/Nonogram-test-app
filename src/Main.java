@@ -17,8 +17,8 @@ public class Main {
       HintGetter hintGetterBW = new HintGetter(blackAndWhiteGrid);
       HintGetter hintGetterRGB = new HintGetter(redGreenBlueWhiteGrid);
 
-      System.out.println(hintGetterBW.getHint(2, 2));
-      System.out.println(hintGetterRGB.getHint(6, 6));
+      System.out.println(hintGetterBW.getHint(13, 5));
+      System.out.println(hintGetterRGB.getHint(4, 6));
     } catch (Exception e) {
       System.err.println("An error has occurred:" + e.getMessage());
     }
