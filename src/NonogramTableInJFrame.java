@@ -4,14 +4,13 @@ import javax.swing.border.LineBorder;
 import java.awt.Dimension;
 import java.awt.Color;
 
-import nonogram.BWCellCounts;
-import nonogram.RGBCellCounts;
+import nonogram.BlackWhiteNonogramCellCounts;
 
 public class NonogramTableInJFrame {
 
-  public JFrame getNonogram(String[][] nonogramGrid, boolean isBlackAndWhite) {
+  public JFrame getNonogram(String[][] nonogramGrid) {
     JFrame appFrame = createNonogramFrame();
-    Box nonogramCellsGrid = createNonogramCellsGridAndCounts(nonogramGrid, isBlackAndWhite);
+    Box nonogramCellsGrid = createNonogramCellsGridAndCounts(nonogramGrid);
     appFrame.add(nonogramCellsGrid);
     appFrame.setVisible(true);
     return appFrame;
@@ -24,60 +23,23 @@ public class NonogramTableInJFrame {
     return appFrame;
   }
 
-private Box createNonogramCellsGridAndCounts(String[][] nonogramGrid, boolean isBlackAndWhite) {
+private Box createNonogramCellsGridAndCounts(String[][] nonogramGrid) {
     Box verticalBoxforButtonRows = Box.createVerticalBox();
     NonogramCountsKeysUI nonogramCounsKeys = new NonogramCountsKeysUI();
     
-    if (isBlackAndWhite) {
         verticalBoxforButtonRows.add(createBlackAndWhiteGrid(nonogramGrid, nonogramCounsKeys));
-    } else {
-        verticalBoxforButtonRows.add(createColorGrid(nonogramGrid, nonogramCounsKeys));
-    }
-
     for (int row = 0; row < nonogramGrid.length; row++) {
         Box buttonRowBox = getOneNonogramRow(nonogramGrid[row]);
-        if (isBlackAndWhite) {
-            nonogramCounsKeys.addNonogramOneRowCounts(new BWCellCounts(nonogramGrid).getAllRowsBlackCellCounts().get(row),
+            nonogramCounsKeys.addNonogramOneRowCounts(new BlackWhiteNonogramCellCounts(nonogramGrid).getBlackCellCountsInAllRows().get(row),
                 buttonRowBox);
-        } else {
-            RGBCellCounts rgbCellCounts = new RGBCellCounts(nonogramGrid);
-            nonogramCounsKeys.addNonogramOneRowCounts(rgbCellCounts.getColorCellCountsRows().get(row), buttonRowBox);
-            nonogramCounsKeys.addNonogramOneRowColoursOfCounts(rgbCellCounts.getColorsOfCellCountsRows().get(row),
-                buttonRowBox);
-        }
         verticalBoxforButtonRows.add(buttonRowBox);
     }
     return verticalBoxforButtonRows;
 }
 
 private Box createBlackAndWhiteGrid(String[][] nonogramGrid, NonogramCountsKeysUI nonogramCountsKeysUI) {
-    return nonogramCountsKeysUI.addNonogramAllColumnsCounts(new BWCellCounts(nonogramGrid).getAllColumnsBlackCellCount());
+    return nonogramCountsKeysUI.addNonogramAllColumnsCounts(new BlackWhiteNonogramCellCounts(nonogramGrid).getBlackCellCountsInAllColumns());
 }
-
-private Box createColorGrid(String[][] nonogramGrid, NonogramCountsKeysUI nonogramCountsKeysUI) {
-    RGBCellCounts rgbCellCounts = new RGBCellCounts(nonogramGrid);
-
-    Box horizontalColorsOfColumnCounts = nonogramCountsKeysUI
-            .addNonogramAllColumnsColorsOfCounts(rgbCellCounts.getColorsOfCellCountsColumns());
-    horizontalColorsOfColumnCounts.add(createButtonOverVerticalCounts());
-
-    Box horizontalColumnCounts = nonogramCountsKeysUI
-            .addNonogramAllColumnsCounts(rgbCellCounts.getColorCellCountsColumns());
-    horizontalColumnCounts.add(createButtonOverVerticalCounts());
-
-    Box verticalBox = Box.createVerticalBox();
-    verticalBox.add(horizontalColorsOfColumnCounts);
-    verticalBox.add(horizontalColumnCounts);
-    return verticalBox;
-}
-
-
-  private JButton createButtonOverVerticalCounts() {
-    JButton buttonOverVerticalCounts = new JButton();
-    buttonOverVerticalCounts.setPreferredSize(new Dimension(100, 50));
-    buttonOverVerticalCounts.setMaximumSize(new Dimension(100, 50));
-    return buttonOverVerticalCounts;
-  }
 
   private Box getOneNonogramRow(String[] oneRowOfNonogramGrid) {
     Box buttonRowBox = Box.createHorizontalBox();
@@ -108,13 +70,7 @@ private Box createColorGrid(String[][] nonogramGrid, NonogramCountsKeysUI nonogr
     Color cellColor = Color.WHITE;
     if (gridCellColor.equalsIgnoreCase("black")) {
       cellColor = Color.BLACK;
-    } else if (gridCellColor.equalsIgnoreCase("red")) {
-      cellColor = Color.RED;
-    } else if (gridCellColor.equalsIgnoreCase("green")) {
-      cellColor = Color.GREEN;
-    } else if (gridCellColor.equalsIgnoreCase("blue")) {
-      cellColor = Color.BLUE;
-    }
+    } 
     return cellColor;
   }
 }

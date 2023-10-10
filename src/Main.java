@@ -1,24 +1,19 @@
 import nonogram.HintGetter;
 
-import nonogram.GridGetter;
+import nonogram.NonogramGridCreator;
 
 public class Main {
   public static void main(String[] args) {
     try {
       NonogramTableInJFrame nonogramTable = new NonogramTableInJFrame();
 
-      GridGetter gridGetter = new GridGetter("src/images/sun.png", 15, 15);
-      String[][] blackAndWhiteGrid = gridGetter.getBlackAndWhiteGrid();
-      String[][] redGreenBlueWhiteGrid = gridGetter.getRedBlueGreenWhiteGrid();
+      NonogramGridCreator nonogramGridCreator = new NonogramGridCreator("src/images/sun.png", 15, 15);
+      String[][] blackAndWhiteGrid = nonogramGridCreator.getBlackAndWhiteGrid();
+      nonogramTable.getNonogram(nonogramGridCreator.getBlackAndWhiteGrid());
 
-      nonogramTable.getNonogram(gridGetter.getRedBlueGreenWhiteGrid(), false);
-      nonogramTable.getNonogram(gridGetter.getBlackAndWhiteGrid(), true);
+      HintGetter hintGetter = new HintGetter(blackAndWhiteGrid);
 
-      HintGetter hintGetterBW = new HintGetter(blackAndWhiteGrid);
-      HintGetter hintGetterRGB = new HintGetter(redGreenBlueWhiteGrid);
-
-      System.out.println(hintGetterBW.getHint(13, 5));
-      System.out.println(hintGetterRGB.getHint(4, 6));
+      System.out.println(hintGetter.getHint(13, 5));
     } catch (Exception e) {
       System.err.println("An error has occurred:" + e.getMessage());
     }
