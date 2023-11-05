@@ -1,3 +1,5 @@
+package controller;
+
 import nonogram.HintGetter;
 
 import nonogram.NonogramGridCreator;
@@ -5,11 +7,12 @@ import nonogram.NonogramGridCreator;
 public class Main {
   public static void main(String[] args) {
     try {
-      NonogramTableInJFrame nonogramTable = new NonogramTableInJFrame();
-
       NonogramGridCreator nonogramGridCreator = new NonogramGridCreator("src/images/sun.png", 15, 15);
       String[][] blackAndWhiteGrid = nonogramGridCreator.getBlackAndWhiteGrid();
-      nonogramTable.getNonogram(nonogramGridCreator.getBlackAndWhiteGrid());
+
+      
+      NonogramApp nonogramApp = new NonogramApp(nonogramGridCreator.getBlackAndWhiteGrid());
+      nonogramApp.getNonogramApp();
 
       HintGetter hintGetter = new HintGetter(blackAndWhiteGrid);
 
