@@ -2,6 +2,7 @@
 | -------- | -------- | -------- |
 | TC1.1 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC1.1.2 | Manuellt test via användargränssnitt i TestApp | ✓ |
+ TC1.1.3 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC1.1.4 | Manuellt test via användargränssnitt i TestApp | x |
 | TC1.2 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC1.2.1| Manuellt test via användargränssnitt i TestApp | ✓ |
@@ -12,7 +13,6 @@
 | TC3.2.2 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC3.3 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC5.1 | Manuellt test via användargränssnitt i TestApp | ✓ |
-| TC5.2 | Manuellt test via användargränssnitt i TestApp | ✓ |
 | TC6.1 | Manuellt test via användargränssnitt i TestApp | ✓ |
 
 ### TC1.1.4

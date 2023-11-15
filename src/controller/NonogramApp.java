@@ -11,8 +11,8 @@ public class NonogramApp {
     this.nonogramGrid = nonogramGrid;
   }
 
-  public AppFrame getNonogramApp() {
-    AppFrame appFrame = new AppFrame();
+  public AppFrame getNonogramApp(String title) {
+    AppFrame appFrame = new AppFrame(title);
     appFrame.addContentToAppFrame(nonogramBoard());
     appFrame.showAppFrame();
     return appFrame;

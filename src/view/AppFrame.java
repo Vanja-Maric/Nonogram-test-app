@@ -18,8 +18,8 @@ public class AppFrame {
    * Constructs a new AppFrame object, which represents the main window of the
    * Nonogram game.
    */
-  public AppFrame() {
-    createAppFrame();
+  public AppFrame(String title) {
+    createAppFrame(title);
   }
 
   /**
@@ -53,8 +53,8 @@ public class AppFrame {
     appFrame.setVisible(true);
   }
 
-  private void createAppFrame() {
-    appFrame = new JFrame("Nonogram");
+  private void createAppFrame(String title) {
+    appFrame = new JFrame(title);
     setGameFrameCharacteristics();
   }
 
