@@ -104,7 +104,7 @@ Original bild:
 1. Följande felmeddelande är presenterad i konsolen: 
 * "Please add image grid. Image grid cannot be 0."
 
-## Test av BlackWhiteCellCounts-klassen
+## Test av BlackWhiteNonogramCellCounts-klassen
 ### TC5.1 Test av metoden getBlackCellCountsInAllRows med den lämpliga svartvita griden.
 1. Starta applikationen.
 

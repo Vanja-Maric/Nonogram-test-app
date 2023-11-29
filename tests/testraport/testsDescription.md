@@ -25,11 +25,11 @@ Kontrollera att flemeddelande är presenterad.
 - Skapa en instans av HintGetter med den lämpliga RGB-griden. Anropa metoden getHint med specifika koordinater.
 Kontrollera om det resulterande resultatet är korrekt och överensstämmer med förväntningarna.
 
-#### Test av BlackWhiteCellCounts-klassen
+#### Test av BlackWhiteNonogramCellCounts-klassen
 5. Test av metoden getBlackCellCountsInAllColumns:
-- Skapa en instans av BlackWhiteCellCounts med den lämpliga svartvita griden.
+- Skapa en instans av BlackWhiteNonogramCellCounts med den lämpliga svartvita griden.
 Anropa metoden getBlackCellCountsInAllColumns och kontrollera om kolumn räkningar är korrekta och överensstämmer med förväntningarna.
-- Skapa en instans av BlackWhiteCellCounts med den olämpliga svartvita griden.
+- Skapa en instans av BlackWhiteNonogramCellCounts med den olämpliga svartvita griden.
 Anropa metoden getBlackCellCountsInAllColumns och kontrollera att ett felmeddelande är presenterad.
 
 6. Test av metoden getBlackCellCountsInAllRows:
